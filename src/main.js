@@ -47,6 +47,11 @@ async function searchPhotos(event) {
     totalPages = Math.ceil(data.totalHits / 15);
     if (data.totalHits > 15) {
       loadBtn.style.display = 'block';
+    } else {
+      loadBtn.style.display = 'none';
+      iziToast.info({
+        message: "We're sorry, but you've reached the end of search results.",
+      });
     }
   } catch (error) {
     iziToast.error({
